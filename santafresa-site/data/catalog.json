@@ -1,0 +1,34 @@
+[
+  {
+    "id": "clasica",
+    "name": "Caja Clásica",
+    "price": 45000,
+    "description": "6 fresas en chocolate oscuro, presentación sencilla.",
+    "chocolateColor": "#3B2420",
+    "dots": ["#FDE8DA", "#FDE8DA", "#FDE8DA"]
+  },
+  {
+    "id": "premium",
+    "name": "Caja Premium",
+    "price": 68000,
+    "description": "10 fresas, chocolate blanco y oscuro, toppings surtidos.",
+    "chocolateColor": "#EADFD3",
+    "dots": ["#D6435A", "#CBA05A", "#3B2420"]
+  },
+  {
+    "id": "ocasion",
+    "name": "Caja Ocasión",
+    "price": 85000,
+    "description": "12 fresas decoradas a juego con el motivo: amor, bebé, grado.",
+    "chocolateColor": "#D6435A",
+    "dots": ["#FDE8DA", "#FDE8DA", "#FDE8DA"]
+  },
+  {
+    "id": "grande",
+    "name": "Caja Grande",
+    "price": 120000,
+    "description": "20 fresas, ideal para compartir en eventos y oficinas.",
+    "chocolateColor": "#CBA05A",
+    "dots": ["#3B2420", "#3B2420", "#3B2420"]
+  }
+]
