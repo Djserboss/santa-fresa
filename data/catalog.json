@@ -4,31 +4,55 @@
     "name": "Caja Clásica",
     "price": 45000,
     "description": "6 fresas en chocolate oscuro, presentación sencilla.",
-    "chocolateColor": "#3B2420",
-    "dots": ["#FDE8DA", "#FDE8DA", "#FDE8DA"]
+    "image": "https://images.pexels.com/photos/14145909/pexels-photo-14145909.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "chocolate"
   },
   {
     "id": "premium",
     "name": "Caja Premium",
     "price": 68000,
     "description": "10 fresas, chocolate blanco y oscuro, toppings surtidos.",
-    "chocolateColor": "#EADFD3",
-    "dots": ["#D6435A", "#CBA05A", "#3B2420"]
+    "image": "https://images.pexels.com/photos/14145912/pexels-photo-14145912.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "chocolate"
   },
   {
     "id": "ocasion",
     "name": "Caja Ocasión",
     "price": 85000,
     "description": "12 fresas decoradas a juego con el motivo: amor, bebé, grado.",
-    "chocolateColor": "#D6435A",
-    "dots": ["#FDE8DA", "#FDE8DA", "#FDE8DA"]
+    "image": "https://images.pexels.com/photos/32525066/pexels-photo-32525066.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "chocolate"
   },
   {
     "id": "grande",
     "name": "Caja Grande",
     "price": 120000,
     "description": "20 fresas, ideal para compartir en eventos y oficinas.",
-    "chocolateColor": "#CBA05A",
-    "dots": ["#3B2420", "#3B2420", "#3B2420"]
+    "image": "https://images.pexels.com/photos/37181419/pexels-photo-37181419.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "chocolate"
+  },
+  {
+    "id": "fresca-tipo-1",
+    "name": "Fresa Fresca Tipo 1",
+    "price": 12000,
+    "description": "Primera calidad: fresas grandes, uniformes, ideales para regalo o mesa de frutas.",
+    "image": "https://images.pexels.com/photos/4038780/pexels-photo-4038780.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "fresca"
+  },
+  {
+    "id": "fresca-tipo-2",
+    "name": "Fresa Fresca Tipo 2",
+    "price": 9000,
+    "description": "Segunda calidad: tamaño mediano, mismo sabor, ideal para consumo diario.",
+    "image": "https://images.pexels.com/photos/17117954/pexels-photo-17117954.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "fresca"
+  },
+  {
+    "id": "fresca-tipo-3",
+    "name": "Fresa Fresca Tipo 3",
+    "price": 7000,
+    "description": "Tercera calidad: perfecta para batidos, postres y preparaciones caseras.",
+    "image": "https://images.pexels.com/photos/1143489/pexels-photo-1143489.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "category": "fresca"
   }
 ]

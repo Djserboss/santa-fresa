@@ -8,25 +8,14 @@ function formatPrice(pesos) {
 }
 
 function productCardHTML(p) {
-  const dots = (p.dots || []).map((color, i) => {
-    // positions spread the dots loosely across the strawberry silhouette
-    const positions = [[85,105],[115,98],[100,130],[80,140],[122,134],[100,90]];
-    const [cx, cy] = positions[i % positions.length];
-    return `<circle cx="${cx}" cy="${cy}" r="4" fill="${color}"/>`;
-  }).join('');
-
-  const waText = encodeURIComponent(`Hola Santa Fresa, quiero pedir la ${p.name}`);
+  const waText = encodeURIComponent(`Hola Santa Fresa, quiero pedir: ${p.name}`);
 
   return `
     <div class="product-card">
       <div class="product-frame">
         <div class="scallop-frame" style="width:100%;height:100%;">
           <svg class="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="94" fill="none" stroke="#C98CA0" stroke-width="2" stroke-dasharray="3 8"/></svg>
-          <svg viewBox="0 0 200 200" width="58%" height="58%">
-            <path d="M100 60c-8-16-24-20-34-15 7 1 14 7 16 15h18z" fill="#4C8C4A"/>
-            <path d="M100 66c-30 0-50 23-50 49 0 24 23 41 50 41s50-17 50-41c0-26-20-49-50-49z" fill="${p.chocolateColor}"/>
-            ${dots}
-          </svg>
+          <img class="product-photo" src="${p.image}" alt="${p.name}" loading="lazy">
         </div>
       </div>
       <h3>${p.name}</h3>
@@ -39,19 +28,55 @@ function productCardHTML(p) {
     </div>`;
 }
 
+function groupHTML(title, products) {
+  if (!products.length) return '';
+  return `
+    <div class="catalog-group">
+      <h3 class="catalog-group-title">${title}</h3>
+      <div class="product-grid">
+        ${products.map(productCardHTML).join('')}
+      </div>
+    </div>`;
+}
+
 async function loadCatalog() {
-  const grid = document.getElementById('catalog-grid');
-  if (!grid) return;
+  const container = document.getElementById('catalog-grid');
+  if (!container) return;
 
   try {
     const res = await fetch('data/catalog.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('No se pudo cargar el catálogo');
     const products = await res.json();
-    grid.innerHTML = products.map(productCardHTML).join('');
+
+    const chocolate = products.filter(p => p.category === 'chocolate');
+    const fresca = products.filter(p => p.category === 'fresca');
+    const otras = products.filter(p => !p.category || (p.category !== 'chocolate' && p.category !== 'fresca'));
+
+    container.innerHTML =
+      groupHTML('Fresas con chocolate', chocolate) +
+      groupHTML('Fresas frescas', fresca) +
+      groupHTML('Otros', otras);
   } catch (err) {
     console.error(err);
-    grid.innerHTML = '<p style="text-align:center;color:#5C3A32;">No pudimos cargar el catálogo. Escríbenos por WhatsApp para ver las opciones disponibles.</p>';
+    container.innerHTML = '<p style="text-align:center;color:#5C3A32;">No pudimos cargar el catálogo. Escríbenos por WhatsApp para ver las opciones disponibles.</p>';
   }
 }
 
+function setupMobileNav() {
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+  });
+
+  // Close the menu after tapping a link
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+}
+
 document.addEventListener('DOMContentLoaded', loadCatalog);
+document.addEventListener('DOMContentLoaded', setupMobileNav);
+

@@ -272,9 +272,39 @@
 
   .product-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
     gap:28px;
+    justify-content:center;
   }
+  .catalog-group{
+    margin-bottom:56px;
+  }
+  .catalog-group:last-child{margin-bottom:0;}
+  .catalog-group-title{
+    font-size:1.3rem;
+    text-align:center;
+    margin-bottom:28px;
+    color:var(--rose-deep);
+    position:relative;
+  }
+  .catalog-group-title::after{
+    content:'';
+    display:block;
+    width:46px;
+    height:2px;
+    background:var(--gold);
+    margin:10px auto 0;
+  }
+  .product-photo{
+    width:88%;
+    height:88%;
+    border-radius:50%;
+    object-fit:cover;
+    position:absolute;
+    top:6%;
+    left:6%;
+  }
+  .product-frame .scallop-frame{position:relative;}
   .product-card{
     position:relative;
     padding-top:14px;
@@ -441,8 +471,31 @@
 
   /* ===== responsive ===== */
   @media (max-width:920px){
-    .nav-links{display:none;}
+    .nav-links{
+      display:flex;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      background:var(--cream);
+      border-bottom:1px solid var(--line);
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      transition:max-height .28s ease, opacity .2s ease;
+      padding:0 32px;
+    }
+    .nav-links.open{
+      max-height:280px;
+      opacity:1;
+      padding:12px 32px 20px;
+    }
+    .nav-links a{width:100%; padding:12px 0;}
     .menu-toggle{display:flex; width:40px; height:40px; align-items:center; justify-content:center;}
+    .nav{position:relative;}
     .hero .wrap{grid-template-columns:1fr; text-align:center;}
     .eyebrow{margin-left:auto;margin-right:auto;}
     .hero p.lead{margin-left:auto;margin-right:auto;}
@@ -451,13 +504,12 @@
     .about .wrap{grid-template-columns:1fr;}
     .about-frame{max-width:320px; margin:0 auto;}
     .about p, .about-tags{margin-left:auto; margin-right:auto; text-align:center; justify-content:center;}
-    .product-grid{grid-template-columns:repeat(2,1fr);}
     .steps{grid-template-columns:1fr; gap:30px;}
     .contact .wrap{grid-template-columns:1fr;}
     .contact-card{padding:32px;}
   }
   @media (max-width:520px){
     .wrap{padding:0 20px;}
-    .product-grid{grid-template-columns:1fr 1fr; gap:16px;}
+    .product-grid{grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:16px;}
     .hero{padding:60px 0 40px;}
   }
