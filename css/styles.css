@@ -96,6 +96,11 @@
     font-size:1.7rem;
   }
   .brand .fresa-icon{width:30px;height:30px;}
+  .brand-logo{
+    height:46px;
+    width:auto;
+    display:block;
+  }
   .nav-links{
     display:flex;
     align-items:center;
@@ -206,6 +211,12 @@
     width:88%;height:88%;
     border-radius:50%;
     background:var(--blush);
+  }
+  .hero-strawberry{
+    width:56%;
+    height:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 18px rgba(59,36,32,0.18));
   }
 
   /* drip divider */
